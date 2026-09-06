@@ -126,6 +126,8 @@ Each member:
 * Creates a Pull Request.
 * Gets the changes reviewed.
 * Merges approved changes into `main`.
+* changes are approved by owner.
+  
 
 ## ⚙️ Jenkins CI
 
