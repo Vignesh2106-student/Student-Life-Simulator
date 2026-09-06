@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Play Campus Life Simulator and balance your student life.">
+  <title>Play | Campus Life Simulator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="game">
+  <header class="game-header">
+    <a class="brand" href="index.html" aria-label="Campus Life Simulator home"><span class="brand-mark">C</span><span>Campus Life<br><strong>Simulator</strong></span></a>
+    <div class="semester-status" aria-label="Semester progress">
+      <div><span class="status-caption">Semester progress</span><strong id="header-day">Day 1 <span>/ 100</span></strong></div>
+      <div class="header-progress"><i id="header-progress-fill"></i></div>
+    </div>
+    <div class="header-actions"><a class="guide-link" href="activities.html">Activity guide</a><button class="btn btn-small btn-outline restart-button" type="button">↻ Restart</button></div>
+  </header>
+
+  <main class="game-shell">
+    <section class="game-intro">
+      <div><p class="eyebrow" id="day-greeting">Your next move</p><h1 id="game-title">Day 1 is yours.</h1><p id="game-subtitle">Pick one meaningful way to spend the day. Balance is the real skill.</p></div>
+      <div class="day-card"><span class="day-card-label">CURRENT DAY</span><strong id="large-day">01</strong><span>of 100</span><small id="actions-remaining">3 actions left today</small></div>
+    </section>
+
+    <section class="dashboard-layout">
+      <aside class="status-panel">
+        <div class="panel-heading"><div><p class="eyebrow">Student profile</p><h2>How you’re doing</h2></div><span class="live-label"><i></i> Live</span></div>
+        <div class="stat-list" id="stat-list">
+          <div class="stat-row" data-stat="academics"><span class="stat-icon">📚</span><div class="stat-info"><div><span>Academics</span><strong>50</strong></div><div class="stat-track"><i></i></div></div></div>
+          <div class="stat-row" data-stat="health"><span class="stat-icon">❤️</span><div class="stat-info"><div><span>Health</span><strong>70</strong></div><div class="stat-track"><i></i></div></div></div>
+          <div class="stat-row" data-stat="happiness"><span class="stat-icon">😊</span><div class="stat-info"><div><span>Happiness</span><strong>60</strong></div><div class="stat-track"><i></i></div></div></div>
+          <div class="stat-row" data-stat="sleep"><span class="stat-icon">😴</span><div class="stat-info"><div><span>Sleep</span><strong>60</strong></div><div class="stat-track"><i></i></div></div></div>
+          <div class="stat-row" data-stat="energy"><span class="stat-icon">⚡</span><div class="stat-info"><div><span>Energy</span><strong>70</strong></div><div class="stat-track"><i></i></div></div></div>
+          <div class="stat-row" data-stat="social"><span class="stat-icon">👥</span><div class="stat-info"><div><span>Social</span><strong>50</strong></div><div class="stat-track"><i></i></div></div></div>
+        </div>
+        <div class="money-card"><span class="stat-icon">💰</span><div><div class="money-card-top"><span>Available funds</span><button type="button" class="edit-money-btn" id="open-edit-money-btn" title="Set available amount">✏️ Edit</button></div><strong id="money-value">₹5,000</strong></div><small id="money-note">Keep a little aside for surprises.</small></div>
+      </aside>
+
+      <section class="actions-panel" aria-labelledby="action-heading">
+        <div class="panel-heading action-heading"><div><p class="eyebrow">Daily action</p><h2 id="action-heading">How will you spend today?</h2></div><p class="action-count" id="action-count">Choose <strong>3 activities</strong><br>to complete today</p></div>
+        <div class="activity-grid" id="activity-grid">
+          <article class="activity-card"><div class="activity-card-top"><span class="activity-icon blue-bg">📖</span><span class="activity-tag">FOCUS</span></div><h3>Study</h3><p>Turn quiet focus into real academic momentum.</p><div class="effect-list"><span class="positive">Academics +10</span><span class="negative">Energy −15</span><span class="negative">Happiness −3</span></div><button type="button" data-activity="study">Choose study <span>→</span></button></article>
+          <article class="activity-card"><div class="activity-card-top"><span class="activity-icon purple-bg">😴</span><span class="activity-tag">RECOVER</span></div><h3>Sleep in</h3><p>Give yourself a proper reset for tomorrow.</p><div class="effect-list"><span class="positive">Sleep +20</span><span class="positive">Energy +20</span><span class="negative">Academics −2</span></div><button type="button" data-activity="sleep">Choose sleep <span>→</span></button></article>
+          <article class="activity-card"><div class="activity-card-top"><span class="activity-icon red-bg">🏋️</span><span class="activity-tag">WELLBEING</span></div><h3>Exercise</h3><p>Move your body and clear your head.</p><div class="effect-list"><span class="positive">Health +10</span><span class="positive">Happiness +5</span><span class="negative">Energy −10</span></div><button type="button" data-activity="exercise">Choose exercise <span>→</span></button></article>
+          <article class="activity-card"><div class="activity-card-top"><span class="activity-icon yellow-bg">🎉</span><span class="activity-tag">CONNECT</span></div><h3>Hang out</h3><p>Make time for the people who make campus home.</p><div class="effect-list"><span class="positive">Social +15</span><span class="positive">Happiness +10</span><span class="negative">Money −₹250</span></div><button type="button" data-activity="hangout">Choose hang out <span>→</span></button></article>
+          <article class="activity-card"><div class="activity-card-top"><span class="activity-icon green-bg">💻</span><span class="activity-tag">EARN</span></div><h3>Part-time work</h3><p>Clock in, earn some money, and build experience.</p><div class="effect-list"><span class="positive">Money +₹650</span><span class="negative">Energy −20</span><span class="negative">Happiness −5</span></div><button type="button" data-activity="work">Choose work <span>→</span></button></article>
+          <article class="activity-card"><div class="activity-card-top"><span class="activity-icon orange-bg">🍕</span><span class="activity-tag">UNWIND</span></div><h3>Relax</h3><p>Slow down and let the day feel a little lighter.</p><div class="effect-list"><span class="positive">Happiness +10</span><span class="positive">Energy +5</span><span class="negative">Money −₹150</span></div><button type="button" data-activity="relax">Choose relax <span>→</span></button></article>
+          <article class="activity-card extra-activity"><div class="activity-card-top"><span class="activity-icon teal-bg">🏫</span><span class="activity-tag">ROUTINE</span></div><h3>Attend class</h3><p>Keep pace with the course and meet classmates.</p><div class="effect-list"><span class="positive">Academics +6</span><span class="positive">Social +3</span><span class="negative">Energy −8</span></div><button type="button" data-activity="class">Attend class <span>→</span></button></article>
+          <article class="activity-card extra-activity"><div class="activity-card-top"><span class="activity-icon blue-bg">🏛️</span><span class="activity-tag">FOCUS</span></div><h3>Library</h3><p>Find a quiet corner and make progress.</p><div class="effect-list"><span class="positive">Academics +8</span><span class="negative">Energy −10</span><span class="negative">Happiness −2</span></div><button type="button" data-activity="library">Visit library <span>→</span></button></article>
+          <article class="activity-card extra-activity"><div class="activity-card-top"><span class="activity-icon pink-bg">🎭</span><span class="activity-tag">COMMUNITY</span></div><h3>Club activity</h3><p>Bring your interests to life with new people.</p><div class="effect-list"><span class="positive">Social +10</span><span class="positive">Happiness +6</span><span class="negative">Energy −8</span></div><button type="button" data-activity="club">Join club <span>→</span></button></article>
+          <article class="activity-card extra-activity"><div class="activity-card-top"><span class="activity-icon purple-bg">🎮</span><span class="activity-tag">FUN</span></div><h3>Gaming</h3><p>Press pause, play a little, and recharge socially.</p><div class="effect-list"><span class="positive">Happiness +12</span><span class="positive">Social +5</span><span class="negative">Sleep −10</span></div><button type="button" data-activity="gaming">Play games <span>→</span></button></article>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"><span class="toast-icon">✦</span><div><strong id="toast-title">A new day begins</strong><p id="toast-message">Choose an activity to shape your semester.</p></div><button type="button" id="toast-close" aria-label="Dismiss notification">×</button></div>
+  <div class="modal-backdrop" id="event-modal" aria-hidden="true"><section class="event-modal" role="dialog" aria-modal="true" aria-labelledby="event-title"><button type="button" class="modal-close" id="event-close" aria-label="Close event">×</button><div class="event-icon" id="event-icon">📚</div><p class="eyebrow">Campus curveball</p><h2 id="event-title">Surprise event</h2><p id="event-description">Something unexpected happened.</p><div class="event-effects" id="event-effects"></div><button type="button" class="btn btn-primary modal-button" id="event-continue">Keep going <span>→</span></button></section></div>
+  <div class="modal-backdrop" id="restart-modal" aria-hidden="true"><section class="event-modal compact-modal" role="dialog" aria-modal="true" aria-labelledby="restart-title"><button type="button" class="modal-close" data-close-restart aria-label="Close restart dialog">×</button><div class="event-icon">↻</div><h2 id="restart-title">Start fresh?</h2><p>Your current semester progress will be cleared. This cannot be undone.</p><div class="modal-actions"><button class="btn btn-outline" data-close-restart type="button">Keep playing</button><button class="btn btn-primary" id="confirm-restart" type="button">Yes, restart</button></div></section></div>
+  <div class="modal-backdrop" id="edit-money-modal" aria-hidden="true">
+    <section class="event-modal compact-modal" role="dialog" aria-modal="true" aria-labelledby="edit-money-title">
+      <button type="button" class="modal-close" id="close-edit-money" aria-label="Close edit money dialog">×</button>
+      <div class="event-icon">💰</div>
+      <h2 id="edit-money-title">Set Available Amount</h2>
+      <p>Specify the available funds (budget) you want to start or play with.</p>
+      <form id="edit-money-form" class="edit-money-form">
+        <div class="form-group">
+          <label for="input-custom-money">Available Amount (₹)</label>
+          <input type="number" id="input-custom-money" min="0" max="1000000" step="100" value="5000" required>
+        </div>
+        <div class="modal-actions" style="margin-top: 20px;">
+          <button class="btn btn-outline" type="button" id="cancel-edit-money">Cancel</button>
+          <button class="btn btn-primary" type="submit">Update Amount</button>
+        </div>
+      </form>
+    </section>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

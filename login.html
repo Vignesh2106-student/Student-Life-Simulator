@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sign in or create an account for Campus Life Simulator to save your 100-day semester choices.">
+  <title>Student Sign In | Campus Life Simulator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="login">
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Campus Life Simulator home">
+      <span class="brand-mark">C</span>
+      <span>Campus Life<br><strong>Simulator</strong></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="activities.html">Activity guide</a>
+    </nav>
+  </header>
+
+  <main class="auth-page-container">
+    <div class="auth-shell">
+      <section class="auth-info-panel">
+        <div class="auth-info-content">
+          <p class="eyebrow"><span class="pulse-dot"></span> Student Portal</p>
+          <h1>Welcome back to<br><em>Campus Life.</em></h1>
+          <p class="auth-info-lead">Sign in to track your 100-day journey, save your semester stats, and unlock personalized student milestones.</p>
+          
+          <div class="auth-highlights">
+            <div class="highlight-item">
+              <span class="highlight-icon">📊</span>
+              <div>
+                <strong>Persistent Progress</strong>
+                <p>Your academic scores, energy levels, and money are saved securely.</p>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <span class="highlight-icon">🏆</span>
+              <div>
+                <strong>Leaderboard Ratings</strong>
+                <p>Earn Legendary Student ratings upon completing the 100 days.</p>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <span class="highlight-icon">🔒</span>
+              <div>
+                <strong>Secure Student Profile</strong>
+                <p>Create your student account or log in to continue your semester.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="auth-card-panel">
+        <div class="auth-card">
+          <div class="auth-header">
+            <div class="auth-tabs" role="tablist">
+              <button class="auth-tab active" data-tab="signin" type="button" role="tab" id="tab-signin">Sign In</button>
+              <button class="auth-tab" data-tab="signup" type="button" role="tab" id="tab-signup">New Student</button>
+            </div>
+          </div>
+
+          <div id="auth-feedback" class="auth-feedback error" hidden role="alert"></div>
+
+          <!-- Sign In Form -->
+          <form id="signin-form" class="auth-form">
+            <div class="form-group">
+              <label for="signin-email">Student Email</label>
+              <input id="signin-email" type="email" placeholder="student@university.edu" required autocomplete="email">
+            </div>
+            <div class="form-group">
+              <div class="label-row">
+                <label for="signin-password">Password</label>
+                <small class="hint-text">New email? Auto-creates account</small>
+              </div>
+              <input id="signin-password" type="password" placeholder="••••••••" required autocomplete="current-password">
+            </div>
+            <button class="btn btn-primary btn-large btn-block" type="submit">
+              Sign In / Continue <span>→</span>
+            </button>
+          </form>
+
+          <!-- Sign Up Form -->
+          <form id="signup-form" class="auth-form" hidden>
+            <div class="form-group">
+              <label for="signup-name">Full Name</label>
+              <input id="signup-name" type="text" placeholder="Alex Rivers" maxlength="40" required autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label for="signup-email">Student Email</label>
+              <input id="signup-email" type="email" placeholder="alex@university.edu" required autocomplete="email">
+            </div>
+            <div class="form-group">
+              <label for="signup-password">Create Password</label>
+              <input id="signup-password" type="password" placeholder="At least 6 characters" minlength="6" required autocomplete="new-password">
+            </div>
+            <div class="form-group">
+              <label for="signup-college">College / University</label>
+              <input id="signup-college" type="text" placeholder="e.g. Sunrise University" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="signup-course">Course</label>
+                <input id="signup-course" type="text" placeholder="e.g. B.Tech CSE" required>
+              </div>
+              <div class="form-group">
+                <label for="signup-year">Year</label>
+                <select id="signup-year" required>
+                  <option value="1st year" selected>1st year</option>
+                  <option value="2nd year">2nd year</option>
+                  <option value="3rd year">3rd year</option>
+                  <option value="4th year">4th year</option>
+                  <option value="Postgraduate">Postgraduate</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="signup-money">Starting Available Amount (₹)</label>
+              <input id="signup-money" type="number" placeholder="e.g. 5000" value="5000" min="0" max="1000000" step="100" required>
+            </div>
+            <button class="btn btn-primary btn-large btn-block" type="submit">
+              Create Student Account <span>→</span>
+            </button>
+          </form>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand footer-brand" href="index.html">
+      <span class="brand-mark">C</span>
+      <span>Campus Life <strong>Simulator</strong></span>
+    </a>
+    <p>Campus Life Simulator © 2026</p>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="activities.html">Guide</a>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
