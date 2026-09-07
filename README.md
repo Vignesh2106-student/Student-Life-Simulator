@@ -152,7 +152,7 @@ This allows Jenkins to automatically detect changes merged into the `main` branc
 
 ## 📌 Project Goals
 
-The main goals of this project are:
+The main goals of this project are:-
 
 * To create an interactive college-life simulation.
 * To demonstrate frontend web development.
